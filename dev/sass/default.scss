@@ -1,0 +1,250 @@
+.c4d-woo-compare-cart {
+	position: relative;
+	transition: all 0.5s;
+	a {
+		text-decoration: none;
+		transition: all 0.3s;
+	}
+	&.empty {
+		.c4d-woo-compare-cart__list {
+			display: none;
+		}
+	}
+	&__list {
+		display: none;
+		background: #fff;
+		width: 1024px;
+		box-shadow: 0px 2px 10px rgba(#000, 0.3);
+		&_header {
+			border-bottom: 1px solid #e0e0e0;
+			.title {
+				margin: auto;
+				padding: 20px 30px;
+				font-size: 14px;
+				text-transform: uppercase;
+				.count {
+					font-weight: 300;
+					text-transform: none;
+				}	
+			}
+		}
+		&_footer {
+			border-top: 1px solid #e0e0e0;
+			padding: 30px;
+			text-align: center;
+			a {
+				text-transform: uppercase;
+				background: #999;
+				color: #fff;
+				display: inline-block;
+				padding: 12px 26px;
+				font-size: 12px;
+				font-weight: 600;
+				text-decoration: none;
+				&:hover {
+					background: #e3504d;
+					color: #fff;
+					text-decoration: none;
+				}
+			}
+		}
+		&_items {
+			position: relative;
+			overflow: auto;
+			list-style: none;
+			padding: 0;
+			margin: auto;
+			.item {
+				position: relative;
+				text-align: center;
+				border-right: 1px solid #dedede;
+				&:after {
+					content: '';
+					display: block;
+					clear: both;
+				}
+				.item_row {
+					padding: 10px 0;
+					&:nth-child(2n + 2){
+						background: #f7f7f7;
+					}
+				}
+				.image {
+					img {
+						max-width: 50px;
+						height: auto;
+						margin: auto;
+						padding: 0;
+					}
+				}
+				.title {
+					font-size: 14px;
+					font-weight: 300;
+					color: #000;
+					margin: auto;
+				}
+				.price {
+					font-size: 14px;
+					display: inline-block;
+					del {
+						color: #999;
+					}
+					ins {
+						text-decoration: none;
+					}
+				}
+				.c4d-woo-compare-remove-item {
+					position: absolute;
+					top: 10px;
+					right: 15px;
+					font-size: 18px;
+					color: #999;
+					line-height: 18px;
+					display: block;
+					&:hover {
+						color: #000;
+					}
+				}
+				&.remove {
+					overflow: hidden;
+					opacity: 0;
+					max-height: 0px;
+					padding: 0;
+					margin: 0;
+				}
+				.add_to_cart_button,
+				.added_to_cart,
+				.ajax_add_to_cart  {
+					background: #e3504d;
+					color: #fff;
+					font-size: 12px;
+					text-transform: uppercase;
+					padding: 10px 15px;
+					display: inline-block;
+					&.added {
+						display: none;
+					}	
+				}
+				&:hover {
+					// .add_to_cart_button {
+					// 	opacity: 1;
+					// 	transform: translateX(0px);
+					// }
+				}
+			}
+		}
+	}
+	&__icon {
+		color: #999;
+		position: relative;
+		cursor: pointer;
+		.number {
+			position: absolute;
+			top: -13px;
+			left: -23px;
+			width: 24px;
+			height: 24px;
+			border-radius: 50%;
+			line-height: 24px;
+			background: #e3504d;
+			color: #fff;
+			text-align: center;
+			display: inline-block;
+			font-size: 12px;
+			&.add-new {
+				animation: c4d-woo-compare-number-add-new 1s;
+			}
+		}
+	}
+	.c4d-woo-compare-scroll & {
+		position: fixed;
+		bottom: 30%;
+		right: 3%;
+		z-index: 500;
+		padding: 0;
+		&__icon {
+			text-align: center;
+			width: 50px;
+			height: 50px;
+			line-height: 50px;
+			background: #fff;
+			border-radius: 50%;
+			box-shadow: 0px 0px 20px rgba(#000, 0.1);
+			z-index: 500;
+			.number {
+				top: -7px;
+				left: -5px;
+			}
+		}
+	}
+}
+.c4d-woo-compare-button {
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	color: #fff;
+	border: 2px solid #fff;
+	display: inline-block;
+	border-radius: 3px;
+	&.added {
+		color: green;
+	}
+}
+.c4d-woo-compare-body-not-scroll {
+	overflow:hidden;	
+}
+.c4d-woo-compare {
+	.fancybox-skin {
+		padding: 0 !important;
+	}
+	.owl-theme .owl-controls {
+		margin: auto;
+		padding: 0;
+		.owl-buttons div {
+			font-family: 'FontAwesome';
+			width: 48px;
+			height: 48px;
+			background: #fff;
+			box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+			font-size: 15px;
+			line-height: 42px;
+			border-radius: 0;
+			color: #cfcfcf;
+			position: absolute;
+			top: 50%;
+			right: 0;
+			transform: translateY(-50%);
+			&:hover {
+				color: #000;
+			}
+			&:before {
+				content: "\f105";
+			}
+			&.owl-prev {
+				right: auto;
+				left: 0;
+				&:before {
+					content: "\f104";
+				}
+			}
+		}
+	}
+}
+@keyframes c4d-woo-compare-number-add-new {
+    0%   {
+    	box-shadow: 0px 0px 0px 0px #e3504d;
+    }
+    25%  {
+    	box-shadow: 0px 0px 3px 5px #e3504d;
+    }
+    50%  {
+    	box-shadow: 0px 0px 3px 0px #e3504d;
+    }
+    75%  {
+    	box-shadow: 0px 0px 3px 10px #e3504d;
+    }
+    100% {
+    	box-shadow: 0px 0px 0px 0px #e3504d;
+    }
+}
